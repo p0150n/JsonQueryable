@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonQueryable", "JsonQueryable\JsonQueryable.csproj", "{AD2C81E2-3F90-4F3E-94ED-5250EA4EA41B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonQueryable.Tests", "JsonQueryable.Tests\JsonQueryable.Tests.csproj", "{656A7476-633C-4B89-8BA9-6A551E235F8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD2C81E2-3F90-4F3E-94ED-5250EA4EA41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2C81E2-3F90-4F3E-94ED-5250EA4EA41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2C81E2-3F90-4F3E-94ED-5250EA4EA41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2C81E2-3F90-4F3E-94ED-5250EA4EA41B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656A7476-633C-4B89-8BA9-6A551E235F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656A7476-633C-4B89-8BA9-6A551E235F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656A7476-633C-4B89-8BA9-6A551E235F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656A7476-633C-4B89-8BA9-6A551E235F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1F0BA1E-992A-4F49-98BE-665F6CB6C273}
+	EndGlobalSection
+EndGlobal
