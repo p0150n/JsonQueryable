@@ -5,6 +5,7 @@ using System.Linq;
 using JsonQueryable.Attributes;
 using JsonQueryable.Contracts;
 using JsonQueryable.Enums;
+using JsonQueryable.Exceptions;
 using JsonQueryable.Extensions;
 using JsonQueryable.Filters.Base;
 using Newtonsoft.Json.Linq;
@@ -56,8 +57,7 @@ namespace JsonQueryable.Factories
 
             if (filterKindAttribute == null)
             {
-                // TODO Custom exception
-                throw new ApplicationException($"Filter must be annotated with {nameof(FilterKindAttribute)}.");
+                throw new FilterAttributeException<FilterKindAttribute>();
             }
 
             FilterKinds filterKind = filterKindAttribute.FilterKind;

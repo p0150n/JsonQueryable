@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JsonQueryable.Attributes;
 using JsonQueryable.Contracts;
+using JsonQueryable.Exceptions;
 using JsonQueryable.Factories;
 using JsonQueryable.Models;
 
@@ -34,6 +35,11 @@ namespace JsonQueryable.Extensions
                     .Where(a => a is FilterNameAttribute)
                     .Cast<FilterNameAttribute>()
                     .FirstOrDefault();
+
+                if (filterNameAttribute == null)
+                {
+                    throw new FilterAttributeException<FilterNameAttribute>();
+                }
 
                 string filterName = filterNameAttribute.Name;
                 FilterData filterData = filterDatasList.FirstOrDefault(fd => fd.Name.Equals(filterName, StringComparison.InvariantCulture));
