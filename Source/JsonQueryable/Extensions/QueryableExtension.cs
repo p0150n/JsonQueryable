@@ -42,16 +42,16 @@ namespace JsonQueryable.Extensions
                 }
 
                 string filterName = filterNameAttribute.Name;
-                FilterData filterData = filterDatasList.FirstOrDefault(fd => fd.Name.Equals(filterName, StringComparison.InvariantCulture));
 
-                if (filterData == null)
+                foreach (FilterData filterData in filterDatasList)
                 {
-                    return queryable;
+                    if (filterData.Name.Equals(filterName, StringComparison.InvariantCulture))
+                    {
+                        IFilter<T> filter = filterFactory.Create(filterType, queryable, filterData.Data);
+
+                        queryable = filter.Apply();
+                    }
                 }
-
-                IFilter<T> filter = filterFactory.Create(filterType, queryable, filterData.Data);
-
-                queryable = filter.Apply();
             }
 
             return queryable;
