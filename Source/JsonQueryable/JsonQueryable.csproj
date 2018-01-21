@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.0.1</Version>
+    <Authors>Slavcho Georgiev</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>json queryable filter</PackageTags>
+    <RepositoryUrl>https://github.com/p0150n/JsonQueryable</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/p0150n/JsonQueryable</PackageProjectUrl>
+    <Copyright>2018</Copyright>
+    <Company>p0150n</Company>
+    <Product />
+    <PackageId>JsonQueryable</PackageId>
+    <PackageLicenseUrl>https://github.com/p0150n/JsonQueryable/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
