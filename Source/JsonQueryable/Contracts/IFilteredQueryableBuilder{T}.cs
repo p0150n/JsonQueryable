@@ -9,6 +9,8 @@ namespace JsonQueryable.Contracts
         IFilteredQueryableBuilder<T> AddFilter<TFilter>()
             where TFilter : IFilter<T>;
 
-        IQueryable<T> Apply(IEnumerable<FilterData> filterDatas);
+        IQueryable<T> ApplyByFilterOrder(IEnumerable<FilterData> filterDatas);
+
+        IQueryable<T> ApplyByFilterDataOrder(IEnumerable<FilterData> filterDatas);
     }
 }

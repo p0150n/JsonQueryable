@@ -25,9 +25,14 @@ namespace JsonQueryable
             return this;
         }
 
-        public IQueryable<T> Apply(IEnumerable<FilterData> filterDatas)
+        public IQueryable<T> ApplyByFilterOrder(IEnumerable<FilterData> filterDatas)
         {
-            return this.queryable.ApplyFilters(this.filterTypes, filterDatas);
+            return this.queryable.ApplyFiltersByFilterOrder(this.filterTypes, filterDatas);
+        }
+
+        public IQueryable<T> ApplyByFilterDataOrder(IEnumerable<FilterData> filterDatas)
+        {
+            return this.queryable.ApplyFiltersByFilterDataOrder(this.filterTypes, filterDatas);
         }
     }
 }
