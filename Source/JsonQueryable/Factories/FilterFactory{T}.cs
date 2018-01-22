@@ -47,7 +47,7 @@ namespace JsonQueryable.Factories
             Type iFilterClosedGenericType = typeof(IFilter<T>);
             if (!iFilterClosedGenericType.IsAssignableFrom(filterType))
             {
-                throw new AggregateException($"{filterType.FullName} must be assignable to {iFilterClosedGenericType.FullName}");
+                throw new ArgumentException($"{filterType.FullName} must be assignable to {iFilterClosedGenericType.FullName}");
             }
 
             FilterKindAttribute filterKindAttribute = filterType.GetCustomAttributes(true)
