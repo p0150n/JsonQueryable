@@ -1,14 +1,12 @@
 ﻿using System.Linq;
 using JsonQueryable.Contracts;
 using JsonQueryable.Factories;
-using JsonQueryable.Filters;
-using JsonQueryable.Models;
-using JsonQueryable.Tests.Models;
+using JsonQueryable.Filters.Tests.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
-namespace JsonQueryable.Tests
+namespace JsonQueryable.Filters.Tests
 {
     public class FilterFactoryTests
     {

@@ -12,12 +12,13 @@
     <Copyright>2018</Copyright>
     <Company>p0150n</Company>
     <Product />
-    <PackageId>JsonQueryable</PackageId>
+    <PackageId>JsonQueryable.Filters</PackageId>
     <PackageLicenseUrl>https://github.com/p0150n/JsonQueryable/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="JsonQueryable" Version="0.0.3" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.8.2" />
   </ItemGroup>
 
 </Project>

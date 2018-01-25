@@ -1,4 +1,4 @@
-﻿namespace JsonQueryable.Tests.Models
+﻿namespace JsonQueryable.Filters.Tests.Models
 {
     public class Person
     {

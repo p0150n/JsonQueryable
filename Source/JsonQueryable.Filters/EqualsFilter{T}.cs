@@ -1,16 +1,14 @@
 ﻿using System.Linq;
 using System.Linq.Dynamic.Core;
 using JsonQueryable.Attributes;
-using JsonQueryable.Filters.Base;
-using JsonQueryable.Models.Filter;
 
 namespace JsonQueryable.Filters
 {
     [FilterName("Equals")]
-    public class EqualsFilter<T> : ParameterizedFilterBase<T, PropertyValueModel<object>>
+    public class EqualsFilter<T> : ParameterizedFilterBase<T, Models.PropertyValueModel<object>>
 
     {
-        public EqualsFilter(IQueryable<T> queryable, PropertyValueModel<object> parameters) : base(queryable, parameters)
+        public EqualsFilter(IQueryable<T> queryable, Models.PropertyValueModel<object> parameters) : base(queryable, parameters)
         {
         }
 

@@ -1,4 +1,4 @@
-﻿namespace JsonQueryable.Models.Filter
+﻿namespace JsonQueryable.Filters.Models
 {
     public class PropertyValueModel<TValue>
     {

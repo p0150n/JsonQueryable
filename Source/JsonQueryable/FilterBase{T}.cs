@@ -4,7 +4,7 @@ using JsonQueryable.Attributes;
 using JsonQueryable.Contracts;
 using JsonQueryable.Enums;
 
-namespace JsonQueryable.Filters.Base
+namespace JsonQueryable
 {
     [FilterKind(FilterKinds.Default)]
     public abstract class FilterBase<T> : IFilter<T>

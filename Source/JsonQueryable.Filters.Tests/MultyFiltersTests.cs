@@ -1,21 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using JsonQueryable.Extensions;
-using JsonQueryable.Filters;
-using JsonQueryable.Models;
-using JsonQueryable.Tests.Models;
+using JsonQueryable.Filters.Tests.Models;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace JsonQueryable.Tests
+namespace JsonQueryable.Filters.Tests
 {
-    public class EqualsFilterTests
+    public class MultyFiltersTests
     {
         [Fact]
-        public void EqualsFilter_ShouldReturn_CorrectData()
+        public void AllFilters_ShouldReturn_CorrectData()
         {
-            var persons = new List<Person>()
+            IQueryable<Person> persons = new List<Person>()
             {
+                new Person()
+                {
+                    FirstName = "Sylvester",
+                    LastName = "Stallone",
+                    Age = 54
+                },
                 new Person()
                 {
                     FirstName = "Johnny",
@@ -33,10 +36,16 @@ namespace JsonQueryable.Tests
                     FirstName = "Bruce",
                     LastName = "Willis",
                     Age = 54
+                },
+                new Person()
+                {
+                    FirstName = "Chuck",
+                    LastName = "Norris",
+                    Age = 54
                 }
             }.AsQueryable();
 
-            var filterData = JsonConvert.DeserializeObject<IEnumerable<FilterData>>(@"
+            IEnumerable<FilterData> filterData = JsonConvert.DeserializeObject<IEnumerable<FilterData>>(@"
             [
                 {
                 ""name"": ""Equals"",
@@ -48,18 +57,26 @@ namespace JsonQueryable.Tests
                 {
                 ""name"": ""OrderBy"",
                 ""data"": ""FirstName""
+                },
+                {
+                ""name"": ""Pagination"",
+                ""data"": {
+                            ""pageSize"": 2,
+                            ""pageNumber"": 2
+                          }
                 }
             ]");
 
-            var result = persons.WithFilters()
+            List<Person> result = persons.WithFilters()
                 .AddFilter<EqualsFilter<Person>>()
                 .AddFilter<OrderByFilter<Person>>()
+                .AddFilter<PaginationFilter<Person>>()
                 .ApplyByFilterOrder(filterData)
                 .ToList();
 
             Assert.Equal(2, result.Count());
-            Assert.Equal("Bruce", result.First().FirstName);
-            Assert.Equal("Johnny", result.Last().FirstName);
+            Assert.Equal("Johnny", result.First().FirstName);
+            Assert.Equal("Sylvester", result.Last().FirstName);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Linq;
 using JsonQueryable.Attributes;
 using JsonQueryable.Enums;
 
-namespace JsonQueryable.Filters.Base
+namespace JsonQueryable
 {
     [FilterKind(FilterKinds.Parameterized)]
     public abstract class ParameterizedFilterBase<T, TParameters> : FilterBase<T>

@@ -6,9 +6,8 @@ using JsonQueryable.Attributes;
 using JsonQueryable.Contracts;
 using JsonQueryable.Exceptions;
 using JsonQueryable.Factories;
-using JsonQueryable.Models;
 
-namespace JsonQueryable.Extensions
+namespace JsonQueryable
 {
     public static class QueryableExtension
     {

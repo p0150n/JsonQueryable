@@ -7,7 +7,6 @@ using JsonQueryable.Contracts;
 using JsonQueryable.Enums;
 using JsonQueryable.Exceptions;
 using JsonQueryable.Extensions;
-using JsonQueryable.Filters.Base;
 using Newtonsoft.Json.Linq;
 
 namespace JsonQueryable.Factories

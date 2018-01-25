@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using JsonQueryable.Contracts;
-using JsonQueryable.Extensions;
-using JsonQueryable.Factories;
-using JsonQueryable.Filters;
-using JsonQueryable.Models;
-using JsonQueryable.Tests.Models;
+using JsonQueryable.Filters.Tests.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
-namespace JsonQueryable.Tests
+namespace JsonQueryable.Filters.Tests
 {
     public class FiltesQueryableExtensionTests
     {

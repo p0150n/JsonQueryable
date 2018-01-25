@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace JsonQueryable.Models
+namespace JsonQueryable
 {
     public class FilterData
     {
