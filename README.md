@@ -83,7 +83,7 @@ JsonQueryable.Filters provides collection of filters and depends on JsonQueryabl
 ## How to implement custom filter
 
 1. Create new class and inherit **ParameterizedFilterBase<T, TParameters>** (json property "**data**" is deserialized to TParameters).
-If your filter do not need parameters to do its job, you can inherit **FilterBase< T >**.
+If your filter do not need parameters, you can inherit **FilterBase< T >**.
 2. Annotate you filter with **FilterNameAttribute** and specify you filter name, this is filter identifier.
 3. Filter constructor must be **public** and signature must match to base constructor signature.
 4. Implement your filtering logic in **Apply** method body.
@@ -110,5 +110,28 @@ public class PaginationFilter<T> : ParameterizedFilterBase<T, PaginationModel>
         return this.queryable.Skip(this.parameters.PageSize * zeroBasePageNumber)
                              .Take(this.parameters.PageSize);
     }
+}
+```
+
+## **ASP.NET Core** usage example
+
+```csharp
+[HttpPost]
+[ModelStateValidationFilter]
+public async Task<IActionResult> Filter([FromBody] FilterRequestModel model)
+{
+    IEnumerable<FilterData> filtersData = model.FiltersData;
+    IQueryable<Person> persons = this.personsService.GetAll();
+    IEnumerable<PersonsResponseModel> response
+        = await persons.WithFilters()
+                       .AddFilter<EqualsFilter<Person>>()
+                       .AddFilter<OrderByFilter<Person>>()
+                       .AddFilter<PaginationFilter<Person>>()
+                       .ApplyByFilterDataOrder(filtersData)
+                       .ProjectTo<PersonsResponseModel>(this.configurationProvider) // AutoMapper IQueryable<T> extension method
+                       .ToListAsync()
+                       .ConfigureAwait(false);
+
+    return this.Ok(response);
 }
 ```
